@@ -1,6 +1,6 @@
 {
   "name": "react-dygraphs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -42,12 +42,13 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-safari-launcher": "^1.0.0",
-    "karma-sinon-chai": "^1.1.0",
+    "karma-sinon-chai": "^2.0.2",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "phantomjs": "^2.1.7",
     "phantomjs-polyfill": "0.0.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.8.6",
@@ -64,7 +65,6 @@
     "email": "motiz88@gmail.com"
   },
   "dependencies": {
-    "dygraphs-commonjs": "^1.1.1",
-    "prop-types": "^15.7.2"
+    "dygraphs-commonjs": "^1.1.1"
   }
 }

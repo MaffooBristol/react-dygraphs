@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DygraphBase from 'dygraphs-commonjs';
 import {propTypes as dygraphPropTypes, spreadProps as spreadKnownProps} from './Dygraph/options';
+
 
 class InteractionModelProxy {
     constructor() {
@@ -27,10 +29,11 @@ class InteractionModelProxy {
 export default class Dygraph extends React.Component {
     displayName = 'Dygraph';
 
-    static propTypes = Object.assign({style: React.PropTypes.object}, dygraphPropTypes);
+    static propTypes = Object.assign({style: PropTypes.object}, dygraphPropTypes);
 
     constructor(props) {
         super(props);
+        this.divRef = React.createRef();
     }
 
     componentDidMount() {
@@ -38,7 +41,7 @@ export default class Dygraph extends React.Component {
         this._interactionProxy._target =
             initAttrs.interactionModel || DygraphBase.Interaction.defaultModel;
         initAttrs.interactionModel = this._interactionProxy;
-        this._dygraph = new DygraphBase(this.refs.root, this.props.data, initAttrs);
+        this._dygraph = new DygraphBase(this.divRef.current, this.props.data, initAttrs);
     }
 
     componentWillUpdate(nextProps/*, nextState*/) {
@@ -63,7 +66,7 @@ export default class Dygraph extends React.Component {
     render() {
         return (
             <div
-                ref='root'
+                ref={this.divRef}
                 style={this.props.style}
             />
         );
